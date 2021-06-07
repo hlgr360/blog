@@ -4,13 +4,13 @@ sudo: false
 install:
 - bundle install
 script:
-- ./build-site.sh
+- "./build-site.sh"
 notifications:
   email:
     recipients:
-      - holger@launchd.de
-    on_success: change # default: change
-    on_failure: always # default: always      
+    - holger@launchd.de
+    on_success: change
+    on_failure: always
 env:
   global:
-    secure: p4wO2sBTw+c+mDFsYxqG0Hh7b5wmOm4y3UR5hgCW9svBx9zPMjV6Nr4UEuvbL9iOhw69WtyNN76W/Do12+cJ0kOCP+ZTBqQSMNEtfjqfOjaj9YwKSs7fl/f7IqZtMjg8wcU2WVYd15dmvTB+0LeaP20Z5dh/FfDE8riZkq21TTkdo97g53383/d8NGL4kniYBBLM8p+BynQ9nsLsUVn/PRwnst6iuRtAU16XgidWUHGieNUGpuO1vYu7PQrw5+K5MmpdQUWiGKn8hCtbgG43ArD6wXVdeLhjWWtF5OCDJL6IwINzR8ACAWxZ0auv3U8lzzwQqCgfq8Ryih059Dvz+LgYqJedQPv9+NZbLJmcXKgOaM9/R6ItB8RMX1X74JkcBRJ0BrL5EiN/9oGjrByvLsjWkCnmmzDIOuXmrJ2IIll6Cid5XRxnL63NrHCWsDEo5ZPpqy5D9t6SrnULk3kHEpgN97WgatG8Vm7zsz/IUj9M+1lHWIGMUhn3ghVONDeWk95q1XBV5L4npLnkX8jkcO7IcKa9Tok++8IBocsY4bJA8ugdekuM+6mg3NSvHG7Heokxfoeh+h8gELXL41AlnTXDNhJ4kHRoeY4gq3A+2KBvD7my2l2szYc/vj6KSv6Jo6uuStDBx5Thle3/XHrKJiCUF6/xsOHQ317+98wvhzE=
+  - secure: swgMnwYX1wl8ure+Ozyt0Cf7b45ULN83ivY912fpnwkscM1WwKIoEu368CEe0smHcY6ORkB4LMzijEE5IHyG60x1fkMhphuQ/2lV8fzeRB2ABH0NtUUOFUmfJv2R1qyww5Nyu6Sn9VOzCa9sLYNWQOKwpkcOoGD/837d7ShA+zl3ypJ/IR89jgL+AEaOI+qTUtkSNC+bURZXlEfZvwUjZaX2yaTdYVTcYWiZeSh9cIJ73U/MANVlaufrCMbitQ1I7xzktzlqXVqh9wmTV7Xfjoz8/tVu2KNTLsuLSOGTx3IrO89Qr6U9zm4sQK6cR4E1ZdtIjsVfZ+QJkmnVz2Co5SuHzxieC0zXrXCO7uCID6JvkbG46+UNnJZLRXnVLUnuRVTWtU6lLgNUrbdbeug+vSKhGY3vHVYpoG0/lDvWreSPc6JhSCaRm3e6DxzYNIuq6zIwwSSLjergrva8mljud0LpQw7dVqiRKuAM5i35DNVneChkDF6ijQ0VpedixrDo5RwFDb6OxHUXLJhg7ic/eG4M8xZN9cSo8ZaHEeMhudjFsPAoxdXVRvG/P/WhbkhPJElbL2u54sWAKkLs59JyFoyO/AB61AgKPHYjJSQZM5PsSds2RsKpF1k9ECo6p3P6ZNv7kR2pQxkcqMuOSP3qu6V5NOAgieO2xGV7o84HqUc=
