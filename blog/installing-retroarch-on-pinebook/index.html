@@ -1,0 +1,292 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Installing retroarch on Pinebook Pro &#8211; Holger Reinhardt</title>
+<meta name="description" content="How to enjoy some retro-graming on an ARM64-based Pinebook Pro">
+<meta name="keywords" content="gaming, linux, arm64">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Installing retroarch on Pinebook Pro">
+<meta name="twitter:description" content="How to enjoy some retro-graming on an ARM64-based Pinebook Pro">
+<meta name="twitter:site" content="@hlgr360">
+<meta name="twitter:creator" content="@hlgr360">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hlgr360.github.io/blog/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Installing retroarch on Pinebook Pro">
+<meta property="og:description" content="How to enjoy some retro-graming on an ARM64-based Pinebook Pro">
+<meta property="og:url" content="https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/">
+<meta property="og:site_name" content="Holger Reinhardt">
+
+
+
+
+
+<link rel="canonical" href="https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/">
+<link href="https://hlgr360.github.io/blog/feed.xml" type="application/atom+xml" rel="alternate" title="Holger Reinhardt Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://hlgr360.github.io/blog/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://hlgr360.github.io/blog/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://hlgr360.github.io/blog/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://hlgr360.github.io/blog/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://hlgr360.github.io/blog/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://hlgr360.github.io/blog/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://hlgr360.github.io/blog/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hlgr360.github.io/blog/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hlgr360.github.io/blog/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hlgr360.github.io/blog/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      
+		    
+		    <li><a href="https://hlgr360.github.io/blog/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://hlgr360.github.io/blog/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://hlgr360.github.io/blog/tags/" >Tags</a></li>
+		  
+		    
+		    <li><a href="https://hlgr360.github.io/blog/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+<header class="masthead">
+	<div class="wrap">
+      
+  		<a href="https://hlgr360.github.io/blog/" class="site-logo" rel="home" title="Holger Reinhardt"><img src="https://hlgr360.github.io/blog/images/site-logo.png" width="200" height="200" alt="Holger Reinhardt logo" class="animated fadeInDown"></a>
+      
+      <h1 class="site-title animated fadeIn"><a href="https://hlgr360.github.io/blog/">Holger Reinhardt</a></h1>
+		<h2 class="site-description animated fadeIn" itemprop="description">I love building products.</h2>
+	</div>
+</header><!-- /.masthead -->
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        <ul class="entry-tags">
+          <li><a href="https://hlgr360.github.io/blog/tags/#gaming" title="Pages tagged gaming">gaming</a></li><li><a href="https://hlgr360.github.io/blog/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://hlgr360.github.io/blog/tags/#arm64" title="Pages tagged arm64">arm64</a></li>
+        </ul>
+        
+          <h1 class="entry-title">Installing retroarch on Pinebook Pro</h1>
+        
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://hlgr360.github.io/blog/images/hlgr360.jpg" class="bio-photo" alt="Holger Reinhardt bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Holger Reinhardt</span></span>
+        <span class="entry-date date published"><time datetime="2021-06-06T00:00:00+00:00"><i class="fa fa-calendar-o"></i> June 06, 2021</time></span>
+        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        <span class="social-share-linkedin">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/" title="Share on LinkedIn" itemprop="LinkedIn"><i class="fa fa-linkedin-square"></i> Share</a>
+</span>
+<span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=gaming,linux,arm64&amp;text=Installing%20retroarch%20on%20Pinebook%20Pro&amp;url=https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/&amp;via=hlgr360" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=https://hlgr360.github.io/blog/blog/installing-retroarch-on-pinebook/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
+      <div class="entry-content">
+        <p>A quick recipe for installing <a href="https://www.retroarch.com/">retroarch</a> on an ARM64-based <a href="https://wiki.pine64.org/wiki/Pinebook_Pro">Pinebook Pro</a>.</p>
+
+<p>One of the unintended consequences of life during Corona is that I found myself sufficiently motivated to check out some of the new platforms around Open-Source hardware. Since I have become more and more disappointed about the direction Apple is taking my Macbook Pro war horse plus being having more and more mandatory compliance software running on my work machine plus learning that <code class="highlighter-rouge">surveilance capitalism</code> even extends to premium hardware sellers like Apple and friends (read this <a href="https://9to5mac.com/2020/11/15/apple-explains-addresses-mac-privacy-concerns/">well-balanced article</a>), I decided to invest in my first new Linux laptop in probably 10 years. But I wasn’t ready to throw in the big bucks just yet, but wanted to start with something small to get my feet wet. I figured that if it would work for my most common work tasks, it could provide some initial untethering from the constant surveillance we are subjected to.</p>
+
+<p>So I ordered a <a href="https://www.pine64.org/pinebook-pro/">Pinebook Pro</a> and was blown away by the quality of the device I received. Having been burnt by a previous version of the <code class="highlighter-rouge">Macbook Air</code> and the Butterfly Keyboard desaster on my Macbook Pro, I received a solidly built ultra-light laptop with metal casing and very pleasant tactile keyboard with a battery uptime of 10+ hours. have I mentioned that the machine costs 200$?</p>
+
+<p>You have to be realistic what you will get for a price like this - this is not a Race Horse, but a dependable Mule .. tough and solidly built, with a certain beauty in its limitations and constrains, a solid developer laptop if you are like me mostly writing code locally and deploying into the cloud.</p>
+
+<p>Getting used to Manjaro and Arch Linux took some time - but if you are not willing to be the change, then you are just a passenger on life’s journey, and not its driver (as to missquote some car advertisment from years ago).</p>
+
+<p>My first project was getting Minecraft to run - while the stock Minecraft does not work, I finally got it up and running using MultiMC. Feeling empowered I wondered how much retro-gaming milage I can get from this machine, especially in comparison to an RPi3 (which has been powering my standalone retro gaming console and hand-held for the last couple of years).</p>
+
+<p>The installation process turned out to be a bit more involved than I had anticipated, hence I felt that some other folks might appreciate a simple recipe to follow along (and yes, I am using yay, but just replace yay with pacman and you should be able to tag along just fine):</p>
+
+<ul>
+  <li>(Optionally) Install a XBox-360 controller driver, run <code class="highlighter-rouge">yay -S xboxdrv-git</code></li>
+  <li>Install retroarch: <code class="highlighter-rouge">yay -S retroarch</code></li>
+  <li>Install asset packs to fix the UI (and yes, have this as second step after installing retroarch): <code class="highlighter-rouge">yay -S retroarch-assets-xmb retroarch-assets-ozone</code></li>
+  <li>Start retroarch from the command line to get the controller setup:
+    <ul>
+      <li>Go to Main Menu / Online Updater / Update Controller Profile</li>
+      <li>You XBox 360 controller should now work - you can use it to navigate the menus</li>
+      <li>Exit retroarch</li>
+    </ul>
+  </li>
+  <li>Install the libretro core dependency: <code class="highlighter-rouge">yay -S libretto-core-info</code></li>
+  <li>Install the Doom core: <code class="highlighter-rouge">yay -S libretro-prboom-git</code></li>
+  <li>Start retroarch from the command line to install Doom wad:
+    <ul>
+      <li>Go to Main Menu / Online Updater / Content Download</li>
+      <li>Navigate to Doom and select it - it will give the choice to download a couple of files - download both</li>
+      <li>Go to Main Menu / Select Core - you should see <code class="highlighter-rouge">prboom</code> - select it (lower left the core should be shown as loaded)</li>
+      <li>Go to Main Menu / Load Content / Downloads / Doom - select one of the two</li>
+      <li>Select <code class="highlighter-rouge">Run</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Thats it - you should now see the familar (well, at least to my generation) Doom launch screen. Congrats and now go forth and clear out some of those bad guys from the hangar.</p>
+
+<p>There is one gotcha if you want to install the PSX (Rearmed) libretro core. That core will fail to install because it wants to overwrite a file owned by <code class="highlighter-rouge">libretro-core-info</code>. The fix is quite simple:</p>
+
+<ul>
+  <li>Delete the offending file manually: <code class="highlighter-rouge">sudo rm -rf /usr/share/libretro/info/pcsx_rearmed_libretro.info</code></li>
+  <li>Install the PSX (rearmed) core: <code class="highlighter-rouge">yay -S libretro-pcsx-rearmed</code></li>
+</ul>
+
+<p>I have tested the follwowing cores: <code class="highlighter-rouge">libretro-prboom-git</code>, <code class="highlighter-rouge">libretro-ppsspp-rbp</code>, <code class="highlighter-rouge">libretro-snes9x</code>, and <code class="highlighter-rouge">libretro-pcsx-rearmed</code>. I am getting a black screen trying <code class="highlighter-rouge">libretro-parallel-n64-git</code>, which apparently is related to the retroarch shaders, which I have not been able yet to get it fixed. :(</p>
+
+<p>Thats it - now may the force be with you and play some Doom, will’ya?</p>
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'hlgr360'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://hlgr360.github.io/blog/blog/accessing-rds-from-cmdln/" class="btn" title="Accessing AWS RDS from local shell">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2021 Holger Reinhardt. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/hlgr360" title="Holger Reinhardt on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	<a href="https://linkedin.com/in/hrreinhardt" title="Holger Reinhardt on LinkedIn" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+	<a href="https://www.slideshare.net/HolgerReinhardt" title="Holger Reinhardt on SlideShare" target="_blank"><i class="fa fa-slideshare fa-2x"></i></a>
+	
+	
+	
+	<a href="https://github.com/hlgr360" title="Holger Reinhardt on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://hlgr360.github.io/blog/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://hlgr360.github.io/blog';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://hlgr360.github.io/blog/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://hlgr360.github.io/blog/assets/js/scripts.min.js"></script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl =
+ 'https://www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-105145569-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = 'https://stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</body>
+</html>
